@@ -1,23 +1,24 @@
 package com.hcl.payment.modal;
 
+import lombok.Data;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data
 public class TransactionEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "transaction_id")
+    private Long transactionId;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private Account account;
 
-    @Id
-    public Long getId() {
-        return id;
-    }
+    private Address address;
+
+    private Country country;
+
+    private Payment payment;
 }
