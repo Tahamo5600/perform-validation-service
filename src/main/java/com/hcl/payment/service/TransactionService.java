@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package com.hcl.payment.service;
 
-import com.example.demo.payload.ApiResponse;
-import com.example.demo.payload.TransactionCreateRequest;
+import com.hcl.payment.payload.ApiResponse;
+import com.hcl.payment.payload.TransactionCreateRequest;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
 

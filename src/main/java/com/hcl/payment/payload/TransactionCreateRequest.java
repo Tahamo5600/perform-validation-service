@@ -1,4 +1,4 @@
-package com.example.demo.payload;
+package com.hcl.payment.payload;
 
 public class TransactionCreateRequest {
 }
