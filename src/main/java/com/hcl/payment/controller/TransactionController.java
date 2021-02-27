@@ -3,6 +3,7 @@ package com.hcl.payment.controller;
 import com.hcl.payment.payload.ApiResponse;
 import com.hcl.payment.payload.TransactionCreateRequest;
 import com.hcl.payment.service.TransactionService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -18,10 +19,10 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/v1/transaction")
 @Validated
+@RequiredArgsConstructor
 public class TransactionController {
 
-    @Autowired
-    private TransactionService transactionService;
+    private final TransactionService transactionService;
 
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createTransaction(@Valid TransactionCreateRequest request) {
