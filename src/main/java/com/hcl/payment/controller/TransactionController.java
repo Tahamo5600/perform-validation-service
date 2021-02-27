@@ -26,6 +26,9 @@ public class TransactionController {
 
     @PostMapping(value = "/create", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createTransaction(@Valid TransactionCreateRequest request) {
+        if(request.getPmtInfo().getPmtAmt() % 100 != 0) {
+            return new ResponseEntity<>("Payment amount must only have 2 decimal fraction", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
         ApiResponse response  = transactionService.createTransaction(request);
         return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.ACCEPTED);
     }
